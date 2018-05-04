@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#b71c1c</color>
+    <color name="colorPrimaryDark">#b71c1c</color>
+    <color name="colorAccent">#3e2723</color>
+    <color name="colorBackgroundButtons">#e0e0e0</color>
+    <color name="colorBackgroundMainEnd">#707c8e</color>
+    <color name="colorButtonsBackground">#2c3138</color>
+    <color name="seekBarBackground">#ffffff</color>
+</resources>

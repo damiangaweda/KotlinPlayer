@@ -1,0 +1,6 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- normal state -->
+    <item android:drawable="@drawable/ic_shuffle_unchecked" android:state_checked="false" />
+    <!-- checked state -->
+    <item android:drawable="@drawable/ic_shuffle_checked" android:state_checked="true" />
+</selector>
