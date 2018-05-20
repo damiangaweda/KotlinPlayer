@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
 import com.example.damian.kotlinplayer.tabs.PlayerTab
-import com.example.damian.kotlinplayer.tabs.PlaylistsTab
+import com.example.damian.kotlinplayer.tabs.LibraryTab
 import com.example.damian.kotlinplayer.tabs.QueueTab
 
 class PagerAdapter(fm: FragmentManager, internal var mNumOfTabs: Int) : FragmentStatePagerAdapter(fm) {
@@ -22,7 +22,7 @@ class PagerAdapter(fm: FragmentManager, internal var mNumOfTabs: Int) : Fragment
                 tab2
             }
             2 -> {
-                val tab3 = PlaylistsTab()
+                val tab3 = LibraryTab()
                 tab3
             }
             else -> null

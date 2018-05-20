@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/KotlinPlayerI.iml" filepath="$PROJECT_DIR$/KotlinPlayerI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/KotlinPlayer.iml" filepath="$PROJECT_DIR$/KotlinPlayer.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import com.example.damian.kotlinplayer.R
 
 
-class PlaylistsTab : Fragment() {
+class LibraryTab : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater!!.inflate(R.layout.playlists_tab, container, false)
+        return inflater!!.inflate(R.layout.library_tab, container, false)
     }
 }

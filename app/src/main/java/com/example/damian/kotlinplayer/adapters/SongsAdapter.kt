@@ -7,13 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import com.example.damian.kotlinplayer.R
+import com.example.damian.kotlinplayer.model.Album
 import com.example.damian.kotlinplayer.model.Song
 import com.github.zawadz88.materialpopupmenu.popupMenu
 import java.util.stream.Collectors
 
 
-class QueueAdapter(text: ArrayList<Song>, private val context: Context) : BaseAdapter(), ListAdapter {
+class SongsAdapter(text: ArrayList<Song>, private val context: Context) : BaseAdapter(), ListAdapter {
     private var titleList = ArrayList<String>()
+    private var artistList = ArrayList<String>()
     private var albumList = ArrayList<String>()
     private var imageList = ArrayList<Int>()
 
@@ -21,8 +23,11 @@ class QueueAdapter(text: ArrayList<Song>, private val context: Context) : BaseAd
         val tmpTitleList = text.stream().map(Song::title).collect(Collectors.toList())
         this.titleList = ArrayList(tmpTitleList)
 
-        val tmpAlbumList = text.stream().map(Song::album).collect(Collectors.toList())
+        val tmpAlbumList = text.stream().map(Song::album).map(Album::title).collect(Collectors.toList())
         this.albumList = ArrayList(tmpAlbumList)
+
+        val tmpArtistList = text.stream().map(Song::artist).collect(Collectors.toList())
+        artistList = ArrayList(tmpArtistList)
 
         val tmpImageList = text.stream().map(Song::cover).collect(Collectors.toList())
         this.imageList = ArrayList(tmpImageList)
@@ -56,6 +61,9 @@ class QueueAdapter(text: ArrayList<Song>, private val context: Context) : BaseAd
         val listItemAlbum = view!!.findViewById(R.id.album_title) as TextView
         listItemAlbum.text = albumList[position]
 
+        //Handle TextView and display album text from your list
+        val listItemArtist = view!!.findViewById(R.id.artist_title) as TextView
+        listItemArtist.text = artistList[position]
 
         //Handle TextView and display images from your list
         val listItemImage = view!!.findViewById(R.id.list_item_image) as ImageView

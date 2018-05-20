@@ -1,6 +1,6 @@
 package com.example.damian.kotlinplayer.activities
 
-import com.example.damian.kotlinplayer.adapters.QueueAdapter
+import com.example.damian.kotlinplayer.adapters.SongsAdapter
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.app.SearchManager
@@ -14,29 +14,47 @@ import com.example.damian.kotlinplayer.adapters.PlaylistAdapter
 import android.support.design.widget.TabLayout
 import android.widget.*
 import com.example.damian.kotlinplayer.R
+import com.example.damian.kotlinplayer.model.Album
+import com.example.damian.kotlinplayer.model.Artist
 import com.example.damian.kotlinplayer.model.Playlist
 import com.example.damian.kotlinplayer.model.Song
 
 internal val SONGS = arrayListOf(
-        Song("Title 1","Album 1"),
-        Song("Title 2","Album 2"),
-        Song("Title 3","Album 3"),
-        Song("Title 4","Album 4"),
-        Song("Title 5","Album 5"),
-        Song("Title 6","Album 6"),
-        Song("Title 7","Album 7"),
-        Song("Title 8","Album 8"),
-        Song("Title 9","Album 9"),
-        Song("Title 10","Album 10")
+        Song("Title 1",Album()),
+        Song("Title 2",Album()),
+        Song("Title 3",Album()),
+        Song("Title 4",Album()),
+        Song("Title 5",Album()),
+        Song("Title 6",Album()),
+        Song("Title 7",Album()),
+        Song("Title 8",Album()),
+        Song("Title 9",Album()),
+        Song("Title 10",Album())
 )
 
 internal val PLAYLISTS = arrayListOf(
-        Playlist("Title 1", 1),
-        Playlist("Title 2", 2),
-        Playlist("Title 3", 3),
-        Playlist("Title 4", 4),
-        Playlist("Title 5", 5)
+        Playlist("Playlist 1", 1),
+        Playlist("Playlist 2", 2),
+        Playlist("Playlist 3", 3),
+        Playlist("Playlist 4", 4),
+        Playlist("Playlist 5", 5)
 
+)
+
+internal val ALBUMS = arrayListOf(
+        Album("Album 1","1999","Artist 1"),
+        Album("Album 2","2006","Artist 1"),
+        Album("Album 3","2001","Artist 2"),
+        Album("Album 4","1987","Artist 1"),
+        Album("Album 5","1999","Artist 3")
+)
+
+internal val ARTISTS = arrayListOf(
+        Artist("Artist 1",10,2),
+        Artist("Artist 2",42,1),
+        Artist("Artist 3",10,3),
+        Artist("Artist 4",5,2),
+        Artist("Artist 5",13,0)
 )
 
 class MainActivity : AppCompatActivity() {
@@ -68,7 +86,7 @@ class MainActivity : AppCompatActivity() {
         val tabLayout = findViewById<View>(R.id.tab_layout) as TabLayout
         tabLayout.addTab(tabLayout.newTab().setText("Queue"))
         tabLayout.addTab(tabLayout.newTab().setText("Player"))
-        tabLayout.addTab(tabLayout.newTab().setText("Playlist"))
+        tabLayout.addTab(tabLayout.newTab().setText("Library"))
         tabLayout.tabGravity = TabLayout.GRAVITY_FILL
 
         val viewPager = findViewById<View>(R.id.pager) as ViewPager
@@ -85,6 +103,21 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 if(viewPager.currentItem == 2 && !playlistLoaded) {
+                    val albumButton = findViewById<Button>(R.id.button_albums)
+                    albumButton.setOnClickListener {
+                        startActivity(Intent(applicationContext,AlbumsList::class.java))
+                    }
+
+                    val artistButton = findViewById<Button>(R.id.button_artists)
+                    artistButton.setOnClickListener {
+                        startActivity(Intent(applicationContext,ArtistList::class.java))
+                    }
+
+                    val genresButton = findViewById<Button>(R.id.button_genres)
+                    genresButton.setOnClickListener {
+                        startActivity(Intent(applicationContext,GenresList::class.java))
+                    }
+
                     loadPlaylist(PLAYLISTS)
                 }
             }
@@ -109,7 +142,7 @@ class MainActivity : AppCompatActivity() {
         println("Im in list loader")
 
 
-        val listAdapter = QueueAdapter(values, applicationContext)
+        val listAdapter = SongsAdapter(values, applicationContext)
 
 
         // Assign adapter to ListView

@@ -35,6 +35,24 @@
             android:theme="@style/AppTheme"
             android:launchMode="singleTop"/>
 
+        <activity android:name=".activities.AlbumsList"
+            android:label="Albums"
+            android:theme="@style/AppTheme"
+            android:launchMode="singleTop"
+            android:parentActivityName=".activities.MainActivity"/>
+
+        <activity android:name=".activities.ArtistList"
+            android:label="Artists"
+            android:theme="@style/AppTheme"
+            android:launchMode="singleTop"
+            android:parentActivityName=".activities.MainActivity"/>
+
+        <activity android:name=".activities.GenresList"
+            android:label="Genres"
+            android:theme="@style/AppTheme"
+            android:launchMode="singleTop"
+            android:parentActivityName=".activities.MainActivity"/>
+
     </application>
 
 </manifest>
